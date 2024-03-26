@@ -34,7 +34,8 @@ def _get_iss_pkgconfig_flags(specifiers, iss_pc, simulator):
         # tool, and its easy for the options to arrive malformed. Use
         # the following hack to get it through.
         if '-Wl' in _flags:  # This should be in LDFLAGS only
-            _flags = "'-Xlinker {}'".format(_flags.replace('-Wl,', ''))
+            _flags = "-Xlinker,{}".format(_flags.replace('-Wl,', ''))
+
     return _flags
 
 
